@@ -9,12 +9,16 @@
 	
         $(document).ready(function(){
             $('#6666').click(function(){
-				$.ivyhole.add($('#ivyhole').val(),$('body'));
+				$.ivyhole.add($('#ivyhole').val(),$('body'),1,$("#coloor").val(),$("#size").val());
+                $('#ivyhole').val("");
+            });
+            $('#66662').click(function(){
+				$.ivyhole.add($('#ivyhole').val(),$('body'),2,$("#coloor").val(),$("#size").val());
                 $('#ivyhole').val("");
             });
             $('#ivyhole').keyup(function(e){
                 if(e.keyCode==13){
-					$.ivyhole.add($('#ivyhole').val(),$('body'));
+					$.ivyhole.add($('#ivyhole').val(),$('body'),1,null,null);
                     $('#ivyhole').val("");
                 }
             });
@@ -30,7 +34,9 @@
     </div>
 <div class="menu-bar" align="center">
         <input type="text" placeholder="input" id="ivyhole"/>
-        <button id="6666" style="height: 20px,;width: auto" >Send</button>
+        <button id="6666" style="height: 20px,;width: auto" >Send1</button>
+        <button id="66662" style="height: 20px,;width: auto" >Send2</button>
+	<input type="color" id="coloor"/><input type="number" id="size" placeholder="input font size"/>
     </div>
 	
 </body>
