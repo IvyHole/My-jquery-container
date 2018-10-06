@@ -35,14 +35,14 @@
             ihm.css({position : 'absolute',
 					 display : 'block',
 					 whiteSpace :'nowrap',
-					 top: Math.floor(Math.random() * container.height()/2)+ "px",
+					 top: Math.floor(Math.random() * container.height() / 2)+ "px",
 					 width:ihm.width(),
 					 right : 50 +"%",
 					 transform: 'translate(-50%,-50%)',
 					});
 			if(color === null){
 				ihm.css({
-					color: "rgb(" + r + "," + g + "," + b + ")"
+					color: "rgb(" + r + "," + g + "," + b + ")",
 				});
 			}
 			else{
@@ -69,7 +69,7 @@
 				this.create(val,container,color,size);
 			}
 			if(typenumber === 2){
-				this.add(val,container,color,size);
+				this.toper(val,container,color,size);
 			}
 			
         },
@@ -87,10 +87,15 @@
             this.timers.push(timer);
         },
 		top:function(ihm){
-			setTimeout(timer(),3000);
-			function timer(){
-				ihm.remove();
-			}
+			var i = 0;
+			var timer = setInterval(function(){
+				i= i + 1 ;
+				if(i=200){
+					ihm.remove();
+					clearInterval(timer);
+				}
+			},15);
+			this.timers.push(timer);
 			}
     };
 })(jQuery);
